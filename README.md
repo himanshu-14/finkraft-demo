@@ -1,2 +1,2 @@
 # finkraft-demo
-A simple express server that calls an api with axios uses express to exposes endpoints cors to allow cross origin access and dotenv to configure environment variables.
+Frontend React component that calls a Node.js backend api, updates it's internal state and renders itself as a table. Backend acts as a proxy to real Zoho api to get past cors and secure api credentials.
