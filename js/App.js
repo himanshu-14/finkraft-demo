@@ -6,6 +6,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var serverRootUrl = "http://localhost:8080";
+
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
@@ -24,7 +26,7 @@ var App = function (_React$Component) {
             rows: []
         }, _this.callApiUpdateState = function () {
             console.log("callApiUpdateState function called");
-            var axiosRes = axios.get('/contacts').then(function (axiosRes) {
+            var axiosRes = axios.get(serverRootUrl + '/contacts').then(function (axiosRes) {
                 console.log("api call is done!!");
                 console.log(axiosRes.data);
                 _this.setState({ rows: axiosRes.data.contacts });
