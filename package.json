@@ -1,0 +1,31 @@
+{
+  "name": "finkraft-demo",
+  "version": "1.0.0",
+  "description": "Server to act as proxy for Zoho Contacts API",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test/**/*.js",
+    "start": "nodemon -w server.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "axios",
+    "proxy",
+    "api",
+    "call",
+    "async",
+    "await",
+    "promises"
+  ],
+  "author": "Himanshu Mittal",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
