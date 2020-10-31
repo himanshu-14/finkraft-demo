@@ -46,61 +46,65 @@ var App = function (_React$Component) {
                 "div",
                 { className: "container text-center" },
                 React.createElement(
-                    "h1",
-                    null,
-                    "React Zoho Contacts API Demo"
-                ),
-                React.createElement(
-                    "button",
-                    { className: "btn btn-success", onClick: this.callApiUpdateState },
-                    "Refresh"
+                    "div",
+                    { className: "m-5" },
+                    React.createElement(
+                        "h1",
+                        null,
+                        "React Zoho Contacts API Demo"
+                    ),
+                    React.createElement(
+                        "button",
+                        { className: "btn btn-success ml-5", onClick: this.callApiUpdateState },
+                        "Refresh"
+                    )
                 ),
                 this.state.loading ? React.createElement(
-                    "h2",
+                    "h3",
                     null,
-                    "Please wait.. Loading data"
+                    "Please wait.. loading data"
                 ) : this.state.rows.length == 0 ? React.createElement(
-                    "h2",
+                    "h3",
                     null,
                     "Use Refresh Button to load data"
                 ) : React.createElement(
                     "table",
-                    { className: "table table-bordered table-hover table-condensed" },
+                    { className: "table table-bordered table-hover table-condensed mt-5" },
                     React.createElement(
                         "thead",
                         null,
                         React.createElement(
-                            "td",
+                            "th",
                             null,
                             "Name"
                         ),
                         React.createElement(
-                            "td",
+                            "th",
                             null,
                             "Company Name"
                         ),
                         React.createElement(
-                            "td",
+                            "th",
                             null,
                             "Email"
                         ),
                         React.createElement(
-                            "td",
+                            "th",
                             null,
                             "Workphone"
                         ),
                         React.createElement(
-                            "td",
+                            "th",
                             null,
                             "GST Treatment"
                         ),
                         React.createElement(
-                            "td",
+                            "th",
                             null,
                             "Receivables"
                         ),
                         React.createElement(
-                            "td",
+                            "th",
                             null,
                             "Payables"
                         )
