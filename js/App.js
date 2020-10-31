@@ -23,13 +23,15 @@ var App = function (_React$Component) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            rows: []
+            rows: [],
+            loading: false
         }, _this.callApiUpdateState = function () {
             console.log("callApiUpdateState function called");
+            _this.setState({ loading: true });
             var axiosRes = axios.get(serverRootUrl + '/contacts').then(function (axiosRes) {
                 console.log("api call is done!!");
                 console.log(axiosRes.data);
-                _this.setState({ rows: axiosRes.data.contacts });
+                _this.setState({ rows: axiosRes.data.contacts, loading: false });
             });
             //url is with respect to server root url         
         }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -53,13 +55,17 @@ var App = function (_React$Component) {
                     { className: "btn btn-success", onClick: this.callApiUpdateState },
                     "Refresh"
                 ),
-                this.state.rows.length === 0 ? React.createElement(
+                this.state.loading ? React.createElement(
                     "h2",
                     null,
-                    "No results"
+                    "Please wait.. Loading data"
+                ) : this.state.rows.length == 0 ? React.createElement(
+                    "h2",
+                    null,
+                    "Use Refresh Button to load data"
                 ) : React.createElement(
                     "table",
-                    { className: "table" },
+                    { className: "table table-bordered table-hover table-condensed" },
                     React.createElement(
                         "thead",
                         null,
@@ -99,47 +105,51 @@ var App = function (_React$Component) {
                             "Payables"
                         )
                     ),
-                    this.state.rows.map(function (row) {
-                        return React.createElement(
-                            "tr",
-                            { key: row.contact_id },
-                            React.createElement(
-                                "td",
-                                null,
-                                row.contact_name
-                            ),
-                            React.createElement(
-                                "td",
-                                null,
-                                row.company_name
-                            ),
-                            React.createElement(
-                                "td",
-                                null,
-                                row.email
-                            ),
-                            React.createElement(
-                                "td",
-                                null,
-                                row.phone
-                            ),
-                            React.createElement(
-                                "td",
-                                null,
-                                row.gst_treatment
-                            ),
-                            React.createElement(
-                                "td",
-                                null,
-                                row.outstanding_receivable_amount
-                            ),
-                            React.createElement(
-                                "td",
-                                null,
-                                row.outstanding_payable_amount
-                            )
-                        );
-                    })
+                    React.createElement(
+                        "tbody",
+                        null,
+                        this.state.rows.map(function (row) {
+                            return React.createElement(
+                                "tr",
+                                { key: row.contact_id },
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.contact_name
+                                ),
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.company_name
+                                ),
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.email
+                                ),
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.phone
+                                ),
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.gst_treatment
+                                ),
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.outstanding_receivable_amount
+                                ),
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.outstanding_payable_amount
+                                )
+                            );
+                        })
+                    )
                 )
             );
         }
