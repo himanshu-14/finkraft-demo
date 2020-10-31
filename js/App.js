@@ -92,7 +92,7 @@ var App = function (_React$Component) {
                         React.createElement(
                             "td",
                             null,
-                            "OST Treatment"
+                            "GST Treatment"
                         ),
                         React.createElement(
                             "td",
